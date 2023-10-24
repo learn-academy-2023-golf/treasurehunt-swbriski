@@ -70,6 +70,9 @@ As a developer, you are tasked with creating a treasure hunt game. The user will
     Branch: play-again
 
 - As a user, I can see a counter that shows how many guesses are remaining. The counter starts at five and decrements by one every time I click on a square that is neither the treasure nor the bomb.
+
+    Branch: guess-counter
+
 - As a user, I can see a message stating that I won the game by selecting the square that contains the treasure.
 - As a user, I can see a message stating that I lost the game by selecting the square that contains the bomb.
 - As a user, I cannot continue to play the game after I win or lose.
