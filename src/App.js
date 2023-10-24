@@ -46,6 +46,7 @@ const App = () => {
 
     let updatedBoard = [...board]
     if (mouseLocation === index) {
+      alert("Congratulations! You found the mouse! Click Play Again to try again!")
       updatedBoard[index] = "🐭"
       setBoard(updatedBoard)
       setGuessCounter(guessCounter-1)
