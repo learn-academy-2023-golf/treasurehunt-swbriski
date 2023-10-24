@@ -21,6 +21,8 @@ const App = () => {
 
   const [mouseTrapLocation, setMouseTrapLocation] = useState(Math.floor(Math.random() * board.length))
 
+  const [disablePlay, setDisablePlay] = useState(false)
+
   console.log("Mouse:", mouseLocation)
   console.log("MouseTrap:", mouseTrapLocation)
 
@@ -39,26 +41,30 @@ const App = () => {
     setMouseLocation(Math.floor(Math.random() * board.length))
     setMouseTrapLocation(Math.floor(Math.random() * board.length))
     setGuessCounter(5)
+    setDisablePlay(false)
   }
 
   const handleGamePlay = (index) => {
-    // alert(index)
 
     let updatedBoard = [...board]
-    if (mouseLocation === index) {
-      alert("Congratulations! You found the mouse! Click Play Again to try again!")
-      updatedBoard[index] = "🐭"
-      setBoard(updatedBoard)
-      setGuessCounter(guessCounter-1)
-    } else if (mouseTrapLocation === index) {
-      alert("OUCH! You ran into a mousetrap! Click Play Again to try again!")
-      updatedBoard[index] = "💥"
-      setBoard(updatedBoard)
-      setGuessCounter(guessCounter-1)
-    } else {
-      updatedBoard[index] = "😾"
-      setBoard(updatedBoard)
-      setGuessCounter(guessCounter-1)
+    if (disablePlay === false) {
+      if (mouseLocation === index) {
+        alert("Congratulations! You found the mouse! Click Play Again to try again!")
+        updatedBoard[index] = "🐭"
+        setBoard(updatedBoard)
+        setGuessCounter(guessCounter-1)
+        setDisablePlay(true)
+      } else if (mouseTrapLocation === index) {
+        alert("OUCH! You ran into a mousetrap! Click Play Again to try again!")
+        updatedBoard[index] = "💥"
+        setBoard(updatedBoard)
+        setGuessCounter(guessCounter-1)
+        setDisablePlay(true)
+      } else {
+        updatedBoard[index] = "😾"
+        setBoard(updatedBoard)
+        setGuessCounter(guessCounter-1)
+      }
     }
   }
 
