@@ -54,6 +54,9 @@ As a developer, you are tasked with creating a treasure hunt game. The user will
     Branch: grid
 
 - As a user, when I click on one of the question marks, an alert appears with the index position of that question mark in the array.
+
+    Branch: alert-index
+
 - As a user, when I click on one of the question marks, a tree emoji appears instead of the alert.
 - As a user, if I select the winning square, the question mark will become a treasure emoji. If I select the losing square, the question mark will become a bomb emoji.
 - As a user, I can click on a “Play Again” button that will restart the game.
