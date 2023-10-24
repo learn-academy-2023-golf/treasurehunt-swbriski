@@ -15,31 +15,47 @@ const App = () => {
     "?"
   ])
 
-  const [treasureLocation, setTreasureLocation] = useState(Math.floor(Math.random() * board.length))
+  const [mouseLocation, setMouseLocation] = useState(Math.floor(Math.random() * board.length))
 
-  const [bombLocation, setBombLocation] = useState(Math.floor(Math.random() * board.length))
+  const [mouseTrapLocation, setMouseTrapLocation] = useState(Math.floor(Math.random() * board.length))
 
-  console.log("Treasure:", treasureLocation)
-  console.log("Bomb:", bombLocation)
+  console.log("Mouse:", mouseLocation)
+  console.log("MouseTrap:", mouseTrapLocation)
+
+  const playAgain = () => {
+    setBoard([
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?"
+    ])
+    setMouseLocation(Math.floor(Math.random() * board.length))
+    setMouseTrapLocation(Math.floor(Math.random() * board.length))
+  }
 
   const handleGamePlay = (index) => {
     // alert(index)
     let updatedBoard = [...board]
-    if (treasureLocation === index) {
-      updatedBoard[index] = "💎"
+    if (mouseLocation === index) {
+      updatedBoard[index] = "🐭"
       setBoard(updatedBoard)
-    } else if (bombLocation === index) {
+    } else if (mouseTrapLocation === index) {
       updatedBoard[index] = "💥"
       setBoard(updatedBoard)
     } else {
-      updatedBoard[index] = "🌴"
+      updatedBoard[index] = "😾"
       setBoard(updatedBoard)
     }
   }
 
   return (
     <>
-      <h1>Treasure Hunt Game</h1>
+      <h1>Cat and Mouse</h1>
       <div className="gameboard">
       {board.map((value, index) => {
         return (
@@ -50,6 +66,7 @@ const App = () => {
         )
       })}
       </div>
+      <button onClick={playAgain}>Play Again</button>
     </>
   )
 }
