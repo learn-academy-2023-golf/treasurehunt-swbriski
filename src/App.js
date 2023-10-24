@@ -15,6 +15,8 @@ const App = () => {
     "?"
   ])
 
+  const [guessCounter, setGuessCounter] = useState(5)
+
   const [mouseLocation, setMouseLocation] = useState(Math.floor(Math.random() * board.length))
 
   const [mouseTrapLocation, setMouseTrapLocation] = useState(Math.floor(Math.random() * board.length))
@@ -36,20 +38,25 @@ const App = () => {
     ])
     setMouseLocation(Math.floor(Math.random() * board.length))
     setMouseTrapLocation(Math.floor(Math.random() * board.length))
+    setGuessCounter(5)
   }
 
   const handleGamePlay = (index) => {
     // alert(index)
+
     let updatedBoard = [...board]
     if (mouseLocation === index) {
       updatedBoard[index] = "🐭"
       setBoard(updatedBoard)
+      setGuessCounter(guessCounter-1)
     } else if (mouseTrapLocation === index) {
       updatedBoard[index] = "💥"
       setBoard(updatedBoard)
+      setGuessCounter(guessCounter-1)
     } else {
       updatedBoard[index] = "😾"
       setBoard(updatedBoard)
+      setGuessCounter(guessCounter-1)
     }
   }
 
@@ -66,6 +73,7 @@ const App = () => {
         )
       })}
       </div>
+      <p>You have {guessCounter} guesses remaining.</p>
       <button onClick={playAgain}>Play Again</button>
     </>
   )
