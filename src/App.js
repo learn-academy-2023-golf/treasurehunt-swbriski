@@ -51,6 +51,7 @@ const App = () => {
       setBoard(updatedBoard)
       setGuessCounter(guessCounter-1)
     } else if (mouseTrapLocation === index) {
+      alert("OUCH! You ran into a mousetrap! Click Play Again to try again!")
       updatedBoard[index] = "💥"
       setBoard(updatedBoard)
       setGuessCounter(guessCounter-1)

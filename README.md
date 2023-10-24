@@ -78,6 +78,9 @@ As a developer, you are tasked with creating a treasure hunt game. The user will
     Branch: winning-message
 
 - As a user, I can see a message stating that I lost the game by selecting the square that contains the bomb.
+
+    Branch: losing-message
+
 - As a user, I cannot continue to play the game after I win or lose.
 - As a user, I can see a message informing me that I lost the game when I run out of turns (the counter reaches zero).
 
