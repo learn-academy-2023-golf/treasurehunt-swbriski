@@ -49,7 +49,7 @@ const App = () => {
     let updatedBoard = [...board]
     if (disablePlay === false) {
       if (mouseLocation === index) {
-        alert("Congratulations! You found the mouse! Click Play Again to try again!")
+        alert("Congratulations! You captured the mouse! Click Play Again to hunt another mouse!")
         updatedBoard[index] = "🐭"
         setBoard(updatedBoard)
         setGuessCounter(guessCounter-1)
@@ -57,6 +57,12 @@ const App = () => {
       } else if (mouseTrapLocation === index) {
         alert("OUCH! You ran into a mousetrap! Click Play Again to try again!")
         updatedBoard[index] = "💥"
+        setBoard(updatedBoard)
+        setGuessCounter(guessCounter-1)
+        setDisablePlay(true)
+      } else if (guessCounter === 1) {
+        alert("Oh no! The mouse escaped with the cheese! Click Play Again to try again!")
+        updatedBoard[index] = "😾"
         setBoard(updatedBoard)
         setGuessCounter(guessCounter-1)
         setDisablePlay(true)

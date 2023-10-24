@@ -87,6 +87,8 @@ As a developer, you are tasked with creating a treasure hunt game. The user will
 
 - As a user, I can see a message informing me that I lost the game when I run out of turns (the counter reaches zero).
 
+    Branch: out-of-turns
+
 ### 🏔 Stretch Goals
 
 - Consider how to handle a situation where the bomb and the treasure are at the same index.
